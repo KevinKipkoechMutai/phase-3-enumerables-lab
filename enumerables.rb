@@ -13,11 +13,11 @@ end
 # with the names of each spicy food
 def get_names(spicy_foods)
   # your code here
-  spicy_foods.each do |food|
+  spicy_foods.map do |food|
     food[:name]
   end
 end
-binding.pry
+
 
 # given an array of spicy foods, **return an array of hashes** 
 # where the heat level of the food is greater than 5
@@ -68,5 +68,9 @@ end
 # the average heat level of all the spicy foods in the array
 def average_heat_level(spicy_foods)
   # your code here
-  spicy_foods.collect {|food| food[:heat_level]}
+  total = spicy_foods.sum do |food|
+    food[:heat_level]
+  end
+
+  average = total / spicy_foods.length
 end
